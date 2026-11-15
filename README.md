@@ -29,6 +29,16 @@ Calibrate E-values of a model or library from `cmbuild`:
 
     infernal-gpu calibrate model.cm model.calibrated.cm --gpu 0
 
+Calibrations on more random sequence are more accurate (sampling error falls with the square root of its
+length). To calibrate on 16 Mb, ten times the default, compile cmcalibrate's sequence generator once
+against an Infernal 1.1.5 source build and pass its output with `--seqs`:
+
+    I=infernal-1.1.5
+    cc -O2 -I$I/src -I$I/hmmer/src -I$I/easel tools/gen_calib_seqs.c $I/src/libinfernal.a \
+       $I/hmmer/src/libhmmer.a $I/easel/libeasel.a -lm -lpthread -o gen_calib_seqs
+    ./gen_calib_seqs 181 1600 10000 > random16Mb.fa          # seed, chunks, chunk length
+    infernal-gpu calibrate model.cm model.calibrated.cm --seqs random16Mb.fa --gpu 0
+
 Filter-free search of calibrated models (the hits of `cmsearch --nohmm`). E-values cover the
 `--n-models` models of the library, as in `cmscan`; the GPU is chosen with `CUDA_VISIBLE_DEVICES`:
 
