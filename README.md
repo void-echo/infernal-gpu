@@ -73,6 +73,12 @@ The test (about a minute; `pytest tests` also works) calibrates two models and c
 E-value thresholds with `cmcalibrate`, then searches a genome slice and compares every hit with
 `cmsearch --nohmm`. Its data are files from the Infernal 1.1.5 tutorial.
 
+## Recalibrated Rfam
+
+`Rfam15.0_recalibrated_16Mb.cm.gz`, attached to the [v0.1.0 release](https://github.com/void-echo/infernal-gpu/releases/tag/v0.1.0),
+is Rfam 15.0 with every model calibrated by `infernal-gpu calibrate` on 16 Mb of random sequence (seed 181);
+only the `ECM` lines differ from the distributed file. Use it with `cmsearch` or `cmscan` as usual.
+
 ## Citation and license
 
 Please cite: [to be added]. Infernal-GPU is distributed under the BSD 3-Clause license (`LICENSE`).
