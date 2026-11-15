@@ -14,8 +14,8 @@ scores, E-values and coordinates are Infernal's.
 
 ## Install
 
-    pip install .                                            # from a clone of this repository
-    pip install git+https://github.com/<owner>/infernal-gpu  # or directly from GitHub
+    pip install infernal-gpu                                   # from PyPI; compiles the GPU programs
+    pip install git+https://github.com/void-echo/infernal-gpu  # or from GitHub (or `pip install .` in a clone)
 
 The GPU programs are compiled for the GPU of the build machine. To build for other or several
 architectures (A100 = 80, RTX 30xx = 86, RTX 40xx = 89 with CUDA ≥ 11.8), name them; if CMake

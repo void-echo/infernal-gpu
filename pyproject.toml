@@ -19,6 +19,10 @@ classifiers = [
   "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
 
+[project.urls]
+Homepage = "https://github.com/void-echo/infernal-gpu"
+Source = "https://github.com/void-echo/infernal-gpu"
+
 [project.scripts]
 infernal-gpu = "infernal_gpu.cli:main"
 
